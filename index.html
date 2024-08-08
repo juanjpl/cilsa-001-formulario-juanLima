@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link id="estilos" rel="stylesheet" href="./style/styles.css" />
+
+    <title>Juan Lima -</title>
+  </head>
+  <body>
+    <header>
+      <h1>Cilsa - Ejercicio 001</h1>
+    </header>
+    <nav>
+      <div>
+        <button
+          onClick="{event.preventDefault();cambiarEstilos(true)}"
+          class="boton-contraste"
+        >
+          Con contraste
+        </button>
+        <button
+          onClick="{event.preventDefault();cambiarEstilos(false)}"
+          class="boton-sin-contraste"
+        >
+          Sin contraste
+        </button>
+      </div>
+    </nav>
+    <main>
+      <form autocomplete="off">
+        <div class="input-agrupado">
+          <div class="input-group">
+            <label for="nombre">Nombre:</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              oninput="{onInputChange(this.id,this.value),mensajeError(this.id),habilitarEnvio()}"
+            />
+          </div>
+          <div class="mensaje">
+            <p id="mensaje-nombre" class=""></p>
+          </div>
+        </div>
+
+        <div class="input-agrupado">
+          <div class="input-group">
+            <label for="apellido">Apellido:</label>
+            <input
+              type="text"
+              id="apellido"
+              name="apellido"
+              oninput="{onInputChange(this.id,this.value),mensajeError(this.id),habilitarEnvio()}"
+            />
+          </div>
+          <div class="mensaje">
+            <p id="mensaje-apellido"></p>
+          </div>
+        </div>
+
+        <div class="input-agrupado">
+          <div class="input-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              oninput="{onInputChange(this.id,this.value),mensajeError(this.id),habilitarEnvio()}"
+            />
+          </div>
+          <div class="mensaje">
+            <p id="mensaje-email"></p>
+          </div>
+        </div>
+
+        <div class="input-agrupado">
+          <div class="input-group">
+            <label for="nacimiento">Nacimiento:</label>
+
+            <input
+              type="date"
+              id="nacimiento"
+              name="nacimiento"
+              min="1850-01-01"
+              max="`${fechaHoy()}`"
+              oninput="{onInputChange(this.id,this.value),mensajeError(this.id),habilitarEnvio()}"
+              onkeydown="return false"
+            />
+          </div>
+          <div class="mensaje">
+            <p id="mensaje-nacimiento"></p>
+          </div>
+        </div>
+
+        <div class="input-agrupado">
+          <div class="input-group">
+            <label for="pais">Pais:</label>
+            <select
+              name="pais"
+              oninput="{onInputChange(this.name,this.value),mensajeError(this.name),habilitarEnvio()}"
+            >
+              <option value="vacio"></option>
+              <option value="Argentina">Argentina</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Brasil">Brasil</option>
+              <option value="Chile">Chile</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="Guyana">Guyana</option>
+              <option value="Paraguay">Paraguay</option>
+              <option value="Perú">Perú</option>
+              <option value="Suriname">Suriname</option>
+              <option value="Uruguay">Uruguay</option>
+              <option value="Venezuela">Venezuela</option>
+            </select>
+          </div>
+          <div class="mensaje">
+            <p id="mensaje-pais"></p>
+          </div>
+        </div>
+
+        <div class="input-submit">
+          <button
+            type="submit"
+            id="boton-enviar"
+            onclick="{event.preventDefault();enviarFormulario()}"
+            class="boton-enviar-deshabilitado"
+          >
+            Enviar
+          </button>
+          <!-- 
+             <button onClick={event.preventDefault();imprimirFormulario()}>Mensaje</button>
+         -->
+        </div>
+      </form>
+    </main>
+    <script src="./app/app.js"></script>
+  </body>
+</html>
